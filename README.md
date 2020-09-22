@@ -22,4 +22,21 @@ This system performs the following functions:
 
 `python3 main.py`
 
-5. Add to some type of scheduler to be sure it runs on a regular basis.
+5. Add as a service so the script will run on startup
+
+```
+cd /lib/systemd/system/
+sudo nano stork.service
+```
+
+_Copy in from example file_
+
+```
+sudo chmod 644 /lib/systemd/system/stork.service
+chmod +x /home/pi/shipping-stork/main.py
+sudo systemctl daemon-reload
+sudo systemctl enable stork.service
+sudo systemctl start stork.service
+```
+
+6. Reboot and test

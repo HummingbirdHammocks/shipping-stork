@@ -2,6 +2,8 @@
 ## Config
 ####
 
+functionality = dict(enable_display="true", enable_tower="true",)
+
 shipstation = dict(
     API_Key="",
     API_Secret="",
@@ -20,11 +22,15 @@ shopify = dict(
     API_Secret="",
     shopify_base="YOURSTORENAME.myshopify.com",
     count_endpoint="/admin/api/2020-01/orders/count.json?fulfillment_status=unfulfilled",
-    orders_endpoint="/admin/api/2020-01/orders.json"
+    orders_endpoint="/admin/api/2020-01/orders.json",
+)
+
+freshdesk = dict(
+    API_Key="",
+    freshdesk_base="YOURSTORENAME.freshdesk.com",
+    outbound_email_endpoint="/api/v2/tickets/outbound_email",
 )
 
 todoist = dict(
-    token="",
-    tasks_endpoint="https://api.todoist.com/rest/v1/tasks",
-    project_id="",
+    token="", tasks_endpoint="https://api.todoist.com/rest/v1/tasks", project_id="",
 )

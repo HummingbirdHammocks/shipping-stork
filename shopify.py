@@ -42,6 +42,7 @@ def get_revenue():
         + config.shopify["API_Key"]
         + ":"
         + config.shopify["API_Secret"]
+        + "@"
         + config.shopify["shopify_base"]
         + config.shopify["orders_endpoint"]
         + "?created_at_min="
