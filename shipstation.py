@@ -114,8 +114,8 @@ def tagEmailSent(orderId):
     payload = {"orderId": orderId, "tagId": config.shipstation["emailed_tag"]}
 
     # Get unshipped orders from shipstation
-    response = requests.request(
-        "POST", config.shipstation["tag_endpoint"], headers=headers, data=payload
+    response = requests.post(
+        config.shipstation["tag_endpoint"], headers=headers, json=payload
     )
 
     if response.status_code == 200:
