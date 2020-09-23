@@ -67,10 +67,10 @@ def filterOrders(orders):
                     print("Inside shipping window")
 
             # Check if order is tagged as no stock
-            tags = str(orders["orders"][index]["tagIds"])
-            if int(config.shipstation["nostock_tag"]) in tags:
+            tags = orders["orders"][index]["tagIds"]
+            if config.shipstation["nostock_tag"] in tags:
                 print("No stock order found")
-                if int(config.shipstation["emailed_tag"]) in tags:
+                if config.shipstation["emailed_tag"] in tags:
                     print("Email already sent")
                 else:
                     print("Sending no stock notification email")
