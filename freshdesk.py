@@ -42,7 +42,7 @@ def noStockTicket(email, orderNumber):
         + config.freshdesk["freshdesk_base"]
         + config.freshdesk["create_ticket_endpoint"],
         headers=headers,
-        data=payload,
+        data=str(payload),
     )
 
     print(response.text.encode("utf8"))
