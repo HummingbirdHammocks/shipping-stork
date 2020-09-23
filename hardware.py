@@ -54,6 +54,7 @@ def updateDisplay(revenue, count):
         serial = spi(port=0, device=0, gpio=noop())
         device = max7219(serial, cascaded=8, block_orientation=-90)
         print("Created device")
+        setup_ran = 1
 
     # Display on matrix display
     msg_revenue = "$" + str(revenue)
