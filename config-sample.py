@@ -12,11 +12,11 @@ shipstation = dict(
     # Safe shipping timeframe in hours
     ship_timeframe=48,
     # Tag ID for the urgent tag
-    urgent_tag="103434",
+    urgent_tag=103434,
     # Tag ID for out of stock tag
-    nostock_tag="",
+    nostock_tag=0,
     # Tag ID for email sent tag
-    emailed_tag="",
+    emailed_tag=0,
 )
 
 shopify = dict(
