@@ -6,6 +6,7 @@
 
 import config
 import todoist
+import freshdesk
 
 import requests
 import json
@@ -70,10 +71,16 @@ def filterOrders(orders):
             tags = str(orders["orders"][index]["tagIds"])
             if config.shipstation["nostock_tag"] in tags:
                 print("No stock order found")
+                # Check if email was already sent
                 if config.shipstation["emailed_tag"] in tags:
                     print("Email already sent")
                 else:
+                    # Send no inventory notification email
                     print("Sending no stock notification email")
+                    freshdesk.emailNoStock(
+                        orders["orders"][index]["customerEmail"],
+                        orders["orders"][index]["orderNumber"],
+                    )
                     tagEmailSent(orders["orders"][index]["orderId"])
 
     else:

@@ -18,12 +18,18 @@ def createAuth():
     return encoded_u
 
 
-def emailNoStock(email):
+def emailNoStock(email, orderNumber):
 
     payload = (
-        '{\r\n    "description": "Shipping issue for order {{ name }}",\r\n    "subject": "Shipping issue for order {{ name }}",\r\n    "email": "'
+        '{\r\n    "description": "Shipping issue for order "'
+        + orderNumber
+        + ',\r\n    "subject": "Shipping issue for order '
+        + orderNumber
+        + '",\r\n    "email": "'
         + email
-        + '",\r\n    "priority": 1,\r\n    "email_config_id": 17000011913,\r\n    ]\r\n}'
+        + '",\r\n    "priority": 1,\r\n    "email_config_id": '
+        + config.freshdesk["email_config_id"]
+        + " ,\r\n    ]\r\n}"
     )
 
     headers = {
