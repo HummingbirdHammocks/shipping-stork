@@ -23,7 +23,7 @@ from luma.core.legacy.font import (
 # Initialize matrix
 serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=8, block_orientation=-90)
-print("Created device")
+print("Display Init")
 
 # Pin Definitions
 
