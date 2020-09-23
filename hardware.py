@@ -30,6 +30,9 @@ print("Display Init")
 green = LED(17)
 yellow = LED(27)
 red = LED(22)
+unused = LED(23)
+#Disabled for now
+unused.off()
 
 
 def updateLights(status):
