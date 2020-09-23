@@ -24,8 +24,7 @@ def checkExisting(orderNumber):
     payload = {}
 
     # Get current tasks for project
-    response = requests.request(
-        "GET",
+    response = requests.get(
         config.todoist["tasks_endpoint"]
         + "?project_id="
         + config.todoist["project_id"],
@@ -62,14 +61,6 @@ def addTask(orderNumber):
         "Authorization": "Bearer %s" % config.todoist["token"],
         "Content-Type": "application/json",
     }
-
-    """ payload = (
-        '{\r\n    "content": "Ship Amazon Order '
-        + str(orderNumber)
-        + ' within 24 hours",\r\n    "project_id":'
-        + config.todoist["project_id"]
-        + ',\r\n    "due_string": "now",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
-    ) """
 
     payload = {
         "content": "Ship Amazon Order " + str(orderNumber) + " within 24 hours",

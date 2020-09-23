@@ -36,13 +36,12 @@ def noStockTicket(email, orderNumber):
         "Authorization": "Basic %s" % createAuth(),
     }
 
-    response = requests.request(
-        "POST",
+    response = requests.post(
         "https://"
         + config.freshdesk["freshdesk_base"]
         + config.freshdesk["create_ticket_endpoint"],
         headers=headers,
-        data=str(payload),
+        json=payload,
     )
 
     if response.status_code == 200:

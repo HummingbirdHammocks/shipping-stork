@@ -30,8 +30,8 @@ def getOrders():
     payload = {}
 
     # Get unshipped orders from shipstation
-    response = requests.request(
-        "GET", config.shipstation["orders_endpoint"], headers=headers, data=payload
+    response = requests.get(
+        config.shipstation["orders_endpoint"], headers=headers, data=payload
     )
 
     if response.status_code == 200:
@@ -95,8 +95,8 @@ def tagUrgent(orderId):
     payload = {"orderId": orderId, "tagId": config.shipstation["urgent_tag"]}
 
     # Get unshipped orders from shipstation
-    response = requests.request(
-        "POST", config.shipstation["tag_endpoint"], headers=headers, data=payload
+    response = requests.post(
+        config.shipstation["tag_endpoint"], headers=headers, json=payload
     )
 
     if response.status_code == 200:
