@@ -39,7 +39,7 @@ def main():
             hardware.updateDisplay(revenue, count)
 
         # Update status light tower
-        if config.functionality["enable_tower"] == "true"
+        if config.functionality["enable_tower"] == "true":
             hardware.updateLights(1)
 
         ## Sleep for a while to prevent excessive API calls
