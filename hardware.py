@@ -48,6 +48,11 @@ def updateLights(status):
         yellow.off()
         red.on()
         return
+    else:
+        green.off()
+        yellow.off()
+        red.off()
+        return
 
 
 def updateDisplay(revenue, count):
