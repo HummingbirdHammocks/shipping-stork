@@ -68,7 +68,7 @@ def filterOrders(orders):
 
             # Check if order is tagged as no stock
             tags = str(orders["orders"][index]["tagIds"])
-            if int(config.shipstation["nostock_tag"])s in tags:
+            if int(config.shipstation["nostock_tag"]) in tags:
                 print("No stock order found")
                 if int(config.shipstation["emailed_tag"]) in tags:
                     print("Email already sent")
