@@ -91,10 +91,12 @@ def tagUrgent(orderId):
 
     if response.status_code == 200:
         print("Order " + str(orderId) + " tagged as urgent")
+        return
     else:
         print("Error code: ")
         print(response.status_code)
         print(response.raise_for_status())
+        return
 
 
 def tagEmailSent(orderId):
@@ -108,7 +110,9 @@ def tagEmailSent(orderId):
 
     if response.status_code == 200:
         print("Order " + str(orderId) + " tagged email sent")
+        return
     else:
         print("Error code: ")
         print(response.status_code)
         print(response.raise_for_status())
+        return
