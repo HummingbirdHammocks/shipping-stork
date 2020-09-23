@@ -29,7 +29,7 @@ def emailNoStock(email, orderNumber):
         + email
         + '",\r\n    "priority": 1,\r\n    "email_config_id": '
         + config.freshdesk["email_config_id"]
-        + " ,\r\n    ]\r\n}"
+        + '" ,\r\n    ]\r\n}"
     )
 
     headers = {
