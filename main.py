@@ -25,7 +25,6 @@ from datetime import datetime, timedelta
 
 def main():
     """ Main entry point of the app """
-    starttime = time.time()
     while True:
 
         # Flag orders outside shipping window
@@ -40,7 +39,7 @@ def main():
             hardware.updateDisplay(revenue, count)
 
         ## Sleep for a while to prevent excessive API calls
-        time.sleep(30.0 - ((time.time() - starttime) % 60.0))
+        time.sleep(10)
 
 
 if __name__ == "__main__":
