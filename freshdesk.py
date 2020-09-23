@@ -45,5 +45,12 @@ def noStockTicket(email, orderNumber):
         data=str(payload),
     )
 
-    print(response.text.encode("utf8"))
+    if response.status_code == 200:
+        print("Ticket Created")
+        return 1
+    else:
+        print("Error code: ")
+        print(response.status_code)
+        print(response.raise_for_status())
+        return 0
 
