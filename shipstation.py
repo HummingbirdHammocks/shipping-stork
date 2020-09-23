@@ -73,10 +73,10 @@ def filterOrders(orders):
                 print("No stock order found")
                 # Check if email was already sent
                 if config.shipstation["emailed_tag"] in tags:
-                    print("Email already sent")
+                    print("Ticket already created")
                 else:
                     # Send no inventory notification email
-                    print("Sending no stock notification email")
+                    print("Creating no stock notification ticket")
                     freshdesk.noStockTicket(
                         orders["orders"][index]["customerEmail"],
                         orders["orders"][index]["orderNumber"],

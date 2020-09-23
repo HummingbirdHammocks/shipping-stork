@@ -30,8 +30,7 @@ shopify = dict(
 freshdesk = dict(
     API_Key="",
     freshdesk_base="YOURSTORENAME.freshdesk.com",
-    outbound_email_endpoint="/api/v2/tickets/outbound_email",
-    email_config_id="",
+    create_ticket_endpoint="/api/v2/tickets",
 )
 
 todoist = dict(
