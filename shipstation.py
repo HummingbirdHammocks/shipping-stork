@@ -7,6 +7,7 @@
 import config
 import todoist
 import freshdesk
+import hardware
 
 import requests
 import json
