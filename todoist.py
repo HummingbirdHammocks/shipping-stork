@@ -63,17 +63,25 @@ def addTask(orderNumber):
         "Content-Type": "application/json",
     }
 
-    payload = (
+    """ payload = (
         '{\r\n    "content": "Ship Amazon Order '
         + str(orderNumber)
         + ' within 24 hours",\r\n    "project_id":'
         + config.todoist["project_id"]
         + ',\r\n    "due_string": "now",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
-    )
+    ) """
+
+    payload = {
+        "content": "Ship Amazon Order " + str(orderNumber) + " within 24 hours",
+        "project_id": config.todoist["project_id"],
+        "due_string": "now",
+        "due_lang": "en",
+        "priority": 4,
+    }
 
     # Create task in todoist
-    response = requests.request(
-        "POST", config.todoist["tasks_endpoint"], headers=headers, data=payload,
+    response = requests.post(
+        config.todoist["tasks_endpoint"], headers=headers, json=payload,
     )
 
     if response.status_code == 200:

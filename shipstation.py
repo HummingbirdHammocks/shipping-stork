@@ -77,13 +77,14 @@ def filterOrders(orders):
                 else:
                     # Send no inventory notification email
                     print("Creating no stock notification ticket")
-                    createdTicket = freshdesk.noStockTicket(
+                    tagEmailSent(orders["orders"][index]["orderId"])
+                    """ createdTicket = freshdesk.noStockTicket(
                         orders["orders"][index]["customerEmail"],
                         orders["orders"][index]["orderNumber"],
                     )
                     if createdTicket == 1:
                         print("Tagging order as email sent")
-                        tagEmailSent(orders["orders"][index]["orderId"])
+                        tagEmailSent(orders["orders"][index]["orderId"]) """
 
     else:
         print("No Orders")
