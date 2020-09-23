@@ -31,30 +31,30 @@ green = LED(17)
 yellow = LED(27)
 red = LED(22)
 unused = LED(23)
-#Disabled for now
-unused.off()
+# Disabled for now
+unused.on()
 
 
 def updateLights(status):
     if status == 0:
-        green.on()
-        yellow.off()
-        red.off()
-        return
-    elif status == 1:
         green.off()
         yellow.on()
-        red.off()
+        red.on()
         return
-    elif status == 2:
-        green.off()
+    elif status == 1:
+        green.on()
         yellow.off()
         red.on()
         return
-    else:
-        green.off()
-        yellow.off()
+    elif status == 2:
+        green.on()
+        yellow.on()
         red.off()
+        return
+    else:
+        green.on()
+        yellow.on()
+        red.on()
         return
 
 
