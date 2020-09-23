@@ -90,6 +90,7 @@ def filterOrders(orders):
         # Update status light tower
         if config.functionality["enable_tower"] == "true":
             allOrders = str(orders["orders"])
+            print(allOrders)
             if config.shipstation["urgent_tag"] in allOrders:
                 hardware.updateLights(3)
             else:
