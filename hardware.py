@@ -20,12 +20,14 @@ from luma.core.legacy.font import (
     LCD_FONT,
 )
 
+setup_ran = 0
 
 # Pin Definitions
 
 green = LED(17)
 yellow = LED(27)
 red = LED(22)
+
 
 def updateLights(status):
     if status == 0:
@@ -46,10 +48,12 @@ def updateLights(status):
 
 
 def updateDisplay(revenue, count):
-    # Initialize matrix
-    serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=8, block_orientation=-90)
-    # print("Created device")
+
+    if setup_ran == 0:
+        # Initialize matrix
+        serial = spi(port=0, device=0, gpio=noop())
+        device = max7219(serial, cascaded=8, block_orientation=-90)
+        print("Created device")
 
     # Display on matrix display
     msg_revenue = "$" + str(revenue)
