@@ -65,13 +65,24 @@ def filterOrders(orders):
                     todoist.checkExisting(orders["orders"][index]["orderNumber"])
                 else:
                     print("Inside shipping window")
+
+            # Check if order is tagged as no stock
+            tags = str(orders["orders"][index]["tagIds"])
+            if config.shipstation["nostock_tag"] in tags:
+                print("No stock order found")
+                if config.shipstation["emailed_tag"] in tags:
+                    print("Email already sent")
+                else:
+                    print("Sending no stock notification email")
+                    tagEmailSent(orders["orders"][index]["orderId"])
+
     else:
         print("No Orders")
 
 
 def tagUrgent(orderId):
     headers = {"Authorization": "Basic %s" % createAuth()}
-    payload = {"orderId": orderId, "tagId": config.shipstation["tag_id"]}
+    payload = {"orderId": orderId, "tagId": config.shipstation["urgent_tag"]}
 
     # Get unshipped orders from shipstation
     response = requests.request(
@@ -80,6 +91,23 @@ def tagUrgent(orderId):
 
     if response.status_code == 200:
         print("Order " + str(orderId) + " tagged as urgent")
+    else:
+        print("Error code: ")
+        print(response.status_code)
+        print(response.raise_for_status())
+
+
+def tagEmailSent(orderId):
+    headers = {"Authorization": "Basic %s" % createAuth()}
+    payload = {"orderId": orderId, "tagId": config.shipstation["emailed_tag"]}
+
+    # Get unshipped orders from shipstation
+    response = requests.request(
+        "POST", config.shipstation["tag_endpoint"], headers=headers, data=payload
+    )
+
+    if response.status_code == 200:
+        print("Order " + str(orderId) + " tagged email sent")
     else:
         print("Error code: ")
         print(response.status_code)

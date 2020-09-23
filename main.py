@@ -30,8 +30,8 @@ def main():
         # Flag orders outside shipping window
         shipstation.getOrders()
 
+        # Get unshipped order count and revenue
         if config.functionality["enable_display"] == "true":
-            # Get unshipped order count and revenue
             count = shopify.get_unfulfilled()
             revenue = shopify.get_revenue()
 
@@ -39,7 +39,7 @@ def main():
             hardware.updateDisplay(revenue, count)
 
         ## Sleep for a while to prevent excessive API calls
-        time.sleep(10)
+        time.sleep(600)
 
 
 if __name__ == "__main__":

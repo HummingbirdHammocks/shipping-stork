@@ -2,7 +2,7 @@
 ## Config
 ####
 
-functionality = dict(enable_display="true", enable_tower="true",)
+functionality = dict(enable_display="true", enable_tower="true", enable_emails="true")
 
 shipstation = dict(
     API_Key="",
@@ -15,6 +15,8 @@ shipstation = dict(
     urgent_tag="103434",
     # Tag ID for out of stock tag
     nostock_tag="",
+    # Tag ID for email sent tag
+    emailed_tag="",
 )
 
 shopify = dict(
@@ -29,6 +31,7 @@ freshdesk = dict(
     API_Key="",
     freshdesk_base="YOURSTORENAME.freshdesk.com",
     outbound_email_endpoint="/api/v2/tickets/outbound_email",
+    email_config_id="",
 )
 
 todoist = dict(
