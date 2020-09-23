@@ -85,6 +85,15 @@ def filterOrders(orders):
                         print("Tagging order as email sent")
                         tagEmailSent(orders["orders"][index]["orderId"])
 
+        # Check if any order is tagged urgent
+        # Update status light tower
+        if config.functionality["enable_tower"] == "true":
+            allOrders = str(orders["orders"])
+            if config.shipstation["urgent_tag"] in allOrders:
+                hardware.updateLights(3)
+            else:
+                hardware.updateLights(1)
+
     else:
         print("No Orders")
 
