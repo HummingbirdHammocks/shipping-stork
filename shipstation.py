@@ -77,7 +77,7 @@ def filterOrders(orders):
                 else:
                     # Send no inventory notification email
                     print("Sending no stock notification email")
-                    freshdesk.emailNoStock(
+                    freshdesk.noStockTicket(
                         orders["orders"][index]["customerEmail"],
                         orders["orders"][index]["orderNumber"],
                     )

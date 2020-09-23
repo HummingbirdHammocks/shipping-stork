@@ -18,18 +18,19 @@ def createAuth():
     return encoded_u
 
 
-def emailNoStock(email, orderNumber):
+def noStockTicket(email, orderNumber):
 
-    payload = (
-        '{\r\n    "description": "Shipping issue for order "'
-        + orderNumber
-        + ',\r\n    "subject": "Shipping issue for order '
-        + orderNumber
-        + '",\r\n    "email": "'
-        + email
-        + '",\r\n    "priority": 1,\r\n    "email_config_id": '
-        + config.freshdesk["email_config_id"]
-        + '" ,\r\n    ]\r\n}'
+    payload = str(
+        {
+            "description": "Order "
+            + orderNumber
+            + " was tagged as unable to ship due to insufficent on hand inventory. An agent will contact you shortly with next steps and alternate options. Our apologies for the inconvienience. We do our best to keep inventory values up to date online but occasionally mistakes are made or a selling channel doesn't update in time allowing an item to be oversold.",
+            "subject": "Insufficent Inventory for Order " + orderNumber,
+            "email": email,
+            "priority": 1,
+            "status": 2,
+            "cc_emails": [],
+        }
     )
 
     headers = {
