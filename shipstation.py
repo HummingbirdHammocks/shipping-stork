@@ -41,7 +41,6 @@ def getOrders():
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
 
 
 def filterOrders(orders):
@@ -114,7 +113,6 @@ def tagUrgent(orderId):
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
         return
 
 
@@ -133,5 +131,4 @@ def tagEmailSent(orderId):
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
         return

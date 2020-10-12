@@ -50,6 +50,5 @@ def noStockTicket(email, orderNumber):
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
         return 0
 

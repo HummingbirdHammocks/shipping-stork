@@ -53,7 +53,6 @@ def checkExisting(orderNumber):
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
 
 
 def addTask(orderNumber):
@@ -80,4 +79,3 @@ def addTask(orderNumber):
     else:
         print("Error code: ")
         print(response.status_code)
-        print(response.raise_for_status())
