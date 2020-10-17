@@ -63,7 +63,9 @@ def filterOrders(orders):
                     # Add urgent tag in shipstation
                     tagUrgent(orders["orders"][index]["orderId"])
                     # Create task in todoist
-                    todoist.checkExisting(orders["orders"][index]["orderNumber"])
+                    todoist.checkExistingThruHiker(
+                        orders["orders"][index]["orderNumber"]
+                    )
                 else:
                     print("Inside shipping window")
 
@@ -84,6 +86,13 @@ def filterOrders(orders):
                     if createdTicket == 1:
                         print("Tagging order as email sent")
                         tagEmailSent(orders["orders"][index]["orderId"])
+
+            # Check if order is tagged thru-hiker
+            tags = str(orders["orders"][index]["tagIds"])
+            if config.shipstation["thruhiker_tag"] in tags:
+                print("Thru-Hiker order found")
+                # Create task in todoist
+                todoist.checkExisting(orders["orders"][index]["orderNumber"])
 
         # Check if any order is tagged urgent
         # Update status light tower

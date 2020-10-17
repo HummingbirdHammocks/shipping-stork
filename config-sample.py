@@ -17,6 +17,8 @@ shipstation = dict(
     nostock_tag="0",
     # Tag ID for email sent tag
     emailed_tag="0",
+    # Tag ID for thru-hiker tag
+    thruhiker_tag="0",
 )
 
 shopify = dict(
