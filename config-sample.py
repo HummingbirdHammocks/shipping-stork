@@ -25,7 +25,7 @@ shopify = dict(
     API_Key="",
     API_Secret="",
     shopify_base="YOURSTORENAME.myshopify.com",
-    count_endpoint="/admin/api/2020-01/orders/count.json?fulfillment_status=unfulfilled",
+    count_endpoint="/admin/api/2020-01/orders/count.json",
     orders_endpoint="/admin/api/2020-01/orders.json",
 )
 
