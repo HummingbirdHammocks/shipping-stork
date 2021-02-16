@@ -90,7 +90,7 @@ def filterOrders(orders):
             if config.shipstation["thruhiker_tag"] in tags:
                 print("Thru-Hiker order found")
                 # Create task in todoist
-                todoist.checkExistingThruHiker(orders["orders"][index]["orderNumber"])
+                # todoist.checkExistingThruHiker(orders["orders"][index]["orderNumber"])
 
         # Check if any order is tagged urgent
         # Update status light tower
