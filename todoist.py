@@ -66,7 +66,7 @@ def addTask(orderNumber):
         + str(orderNumber)
         + ' within 24 hours",\r\n    "project_id":'
         + config.todoist["project_id"]
-        + ',\r\n    "due_string": "now",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
+        + ',\r\n    "due_string": "today",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
     )
 
     # Create task in todoist
@@ -132,7 +132,7 @@ def addTaskThruHiker(orderNumber):
         + str(orderNumber)
         + '",\r\n    "project_id":'
         + config.todoist["project_id"]
-        + ',\r\n    "due_string": "now",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
+        + ',\r\n    "due_string": "today",\r\n    "due_lang": "en",\r\n    "priority": 4\r\n}'
     )
 
     # Create task in todoist
